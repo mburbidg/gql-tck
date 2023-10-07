@@ -54,7 +54,7 @@ Feature: Insert1 - Inserting nodes
     Given an empty graph
     When executing query:
       """
-      INSERT (:Label)
+      INSERT (:aLabel)
       """
     Then the result should be empty
     And the side effects should be:
@@ -65,7 +65,7 @@ Feature: Insert1 - Inserting nodes
     Given an empty graph
     When executing query:
       """
-      INSERT (:Label), (:Label)
+      INSERT (:aLabel), (:aLabel)
       """
     Then the result should be empty
     And the side effects should be:
