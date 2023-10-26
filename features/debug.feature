@@ -2,10 +2,12 @@
 
 Feature: Debug - Creating schemas
 
-  Scenario: [5] Fail when creating a schema with the same path as an existing directory
+  Scenario: [1] Create a schema at the root
     Given any catalog
     When executing query:
       """
-      CREATE SCHEMA /my_schemas
+      CREATE SCHEMA IF NOT EXISTS /movies/usa/utah/yx
       """
-    Then an exception condition should be raised: 42000
+    Then the result should be empty
+    And the side effects should be:
+      | +schemas | 1 |
