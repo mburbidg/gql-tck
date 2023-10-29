@@ -7,7 +7,7 @@ Feature: Debug - Creating schemas
     When executing query:
       """
       CREATE SCHEMA /usa/utah/herriman
-      NEXT CREATE SCHEMA /usa/washington/sammamish
+      CREATE SCHEMA /usa/washington/sammamish
       """
     Then the result should be empty
     And the side effects should be:

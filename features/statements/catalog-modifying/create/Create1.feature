@@ -3,6 +3,16 @@
 
 Feature: Create1 - Creating schemas
 
+  Scenario: [1] Match nodes with a specific relationship
+    Given the friends-1 graph
+    When evaluating the graph pattern:
+      """
+      MATCH (p1:Person)-[:FRIENDS_WITH]->(p2:Person)
+      """
+    Then the result should be, in any order:
+      | p1               | p2                |
+      | ({name: ‘mike’}) | ({name: ‘karen’}) |
+
   Scenario: [1] Create a schema at the root
     Given any catalog
     When executing query:
